@@ -288,7 +288,7 @@ client.on("guildMemberAdd", member => {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );  //7md
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "DgPro-BC";
+    let copy = "ZinoBC";
     let request = `Requested By ${message.author.username}`;  //7md
     if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
     msg.react('✅')
