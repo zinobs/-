@@ -265,8 +265,40 @@ if (message.content.startsWith(adminprefix + 'twitch')) {
  
  
  
- 
- 
+ antispam(client, {
+  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
+  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
+  interval: 1000, // مقدار الوقت قبل حصول باند
+  warningMessage: "*** بطل سبام ***", // رسالة تحذير اذا سوا سبام!
+  roleMessage: "***مبروك على الميوت يا بتاع السبام***", // الرسالة الي تجي اذا شخص اخذ ميوت
+  roleName: "Muted", // اسم رتبة الميوت
+  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
+  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
+  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية
+});
+
+
+
+client.on("guildMemberAdd", member => {
+    member.createDM().then(function (channel) {
+        return channel.send(`:rose:  ولكم نورت السيرفر :rose:
+        :crown: اسم العضو  ${member}:crown:  
+        انت العضو رقم ${member.guild.memberCount} `)
+    }).catch(console.error)
+})
+
+
+
+client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const stewart = member.guild.channels.find("name", "mirage");
+     stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
+   //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  });
+}) 
  
  
  
