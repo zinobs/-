@@ -257,7 +257,9 @@ if (message.content.startsWith(adminprefix + 'twitch')) {
    
  
  
- 
+ client.on('ready',async () => {
+  client.channels.find(ch => ch.id === "519871247593504818" && ch.type === 'voice').join();
+});
  
  
  
