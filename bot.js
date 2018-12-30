@@ -347,27 +347,21 @@ client.on('message',async message => {
   }
   });
 
-client.on('message', message=>{
-    if (message.content ==='Zadd-colors'){
-        if (message.channel.guild){
-            if (message.member.hasPermission('MANAGE_ROLES')){
-                setInterval(function(){})
-                  let count = 0;
-                  let ecount = 0;
-        for(let x = 0; x < 250; x++){
+    client.on('message', message => {
+                        let args = message.content.split(" ").slice(1).join(" ")
+if(message.content.startsWith(prefix + 'color')) {
+    if(!args) return message.channel.send('`يرجي اختيار كم لون `');
+             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
+             message.channel.send("**✅ | تم عمل الالوان**");
+                  setInterval(function(){})
+                    let count = 0;
+                    let ecount = 0;
+          for(let x = 1; x < `${parseInt(args)+1}`; x++){
             message.guild.createRole({name:x,
-            color: 'RANDOM'})
-      }
-            }else{
-                message.channel.sendMessage(':warning: You do not have permission to write this command')
+              color: 'RANDOM'})
+              }
             }
-        }else{
-            message.channel.sendMessage(':warning:  This command only in servers')
-        }
-    }
-   
-
-})
+       });
 
 
 
