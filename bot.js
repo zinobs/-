@@ -226,32 +226,7 @@ function play(guild, song) {
 }//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
  
  
-const adminprefix = "Z";
-const devs = ['434666573370753024' , '434666573370753024' , ''];
-client.on('message', message => {//for dev
-  var argresult = message.content.split(` `).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
- 
-if (message.content.startsWith(adminprefix + 'playing')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
-} else
-  if (message.content.startsWith(adminprefix + 'name')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
-} else
-  if (message.content.startsWith(adminprefix + 'avatar')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      } else
-if (message.content.startsWith(adminprefix + 'twitch')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/faresgameryt");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
-}
- 
- 
-    });
+
  
    
    
@@ -362,6 +337,80 @@ if(message.content.startsWith(prefix + 'color')) {
               }
             }
        });
+
+client.on('ready', function(){ //Toxic Codes
+    var ms = 30000 ;//Toxic Codes
+    var setGame = [`Zine Only `,` Zine Private`];//Toxic Codes
+    var i = -1;//Toxic Codes
+    var j = 0;//Toxic Codes
+    setInterval(function (){//Toxic Codes
+        if( i == -1 ){//Toxic Codes
+            j = 1;//Toxic Codes
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }//Toxic Codes
+        i = i+j;//Toxic Codes
+        client.user.setGame(setGame[i],`http://www.twitch.tv/n3k4a`);//Toxic Codes
+    }, ms);30000
+
+});
+
+
+
+
+
+client.on('message', message => {//Toxic Codes
+    if (message.author.bot) return;
+     if (message.content === prefix + "email") {//Toxic Codes
+function randomem() {//Toxic Codes
+let email = '';//Toxic Codes
+const n3k4a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._"\'';
+for (let i = 0; i < 5; i++) email += n3k4a.charAt(Math.floor(Math.random() * n3k4a.length));//Toxic Codes
+return email//Toxic Codes
+}//Toxic Codes//Toxic Codes
+function randompass() {//Toxic Codes
+let pass = '';//Toxic Codes
+const Toxic Codes = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$%&()-_"\'';//Toxic Codes
+for (let i = 0; i < 8; i++) pass += Toxic Codes.charAt(Math.floor(Math.random() * Toxic Codes.length));//Toxic Codes
+return pass;
+}
+const random1 = randomem();//Toxic Codes//Toxic Codes
+const random2 = randompass();//Toxic Codes
+message.author.send(`------------------------//Toxic Codes
+email : **${random1}@gmail.com**//Toxic Codes
+password : **${random2}**//Toxic Codes
+------------------------`).catch(err => {//Toxic Codes
+   if(err == "DiscordAPIError: Cannot send messages to this user") {//Toxic Codes
+      return message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **");//Toxic Codes
+}//Toxic Codes
+});//Toxic Codes
+//Toxic Codes
+message.channel.send("**تم الارسال الحساب في الخاص | ☑ **")//Toxic Codes
+});//Toxic Codes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
